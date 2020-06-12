@@ -1,31 +1,17 @@
 import 'react-native-gesture-handler';
-import React, {Component} from 'react';
-import LoginScreen from './screens/LoginScreen';
-import HomeScreen from './screens/HomeScreen';
+import React from 'react';
 import allReducers from './reducers/index.js';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
+import thunkMiddleware from 'redux-thunk';
 import {Provider} from 'react-redux';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import Root from './Root';
 
-const store = createStore(allReducers);
-const Stack = createStackNavigator();
+const store = createStore(allReducers, applyMiddleware(thunkMiddleware));
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <NavigationContainer>
-          <Stack.Navigator
-            initialRouteName="Login"
-            screenOptions={{headerShown: false}}>
-            <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Home" component={HomeScreen} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </Provider>
-    );
-  }
+export default function App() {
+  return (
+    <Provider store={store}>
+      <Root />
+    </Provider>
+  );
 }
-
-export default App;

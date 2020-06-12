@@ -3,12 +3,12 @@ import {Container, Content, Text} from 'native-base';
 import {connect} from 'react-redux';
 import HeaderComponent from '../components/HeaderComponent';
 
-function HomeScreen({navigation}) {
+function SignUpScreen({navigation}) {
   return (
     <Container>
-      <HeaderComponent title="Home" back={false} navigation={navigation} />
+      <HeaderComponent title="Sign Up" navigation={navigation} right={false} />
       <Content padder>
-        <Text>Home Screen</Text>
+        <Text>Sign Up</Text>
       </Content>
     </Container>
   );
@@ -23,4 +23,4 @@ function mapStateToProps(state) {
 export default connect(
   mapStateToProps,
   null,
-)(HomeScreen);
+)(SignUpScreen);
