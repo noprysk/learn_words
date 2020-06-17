@@ -1,7 +1,8 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import LoginScreen from './screens/LoginScreen';
-import HomeScreen from './screens/HomeScreen';
+import GroupsScreen from './screens/group/GroupsScreen';
+import GroupNewScreen from './screens/group/GroupNewScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import {connect} from 'react-redux';
@@ -21,7 +22,8 @@ function Root(props) {
           </>
         ) : (
           <>
-            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Groups" component={GroupsScreen} />
+            <Stack.Screen name="GroupNew" component={GroupNewScreen} />
             <Stack.Screen name="Profile" component={ProfileScreen} />
           </>
         )}

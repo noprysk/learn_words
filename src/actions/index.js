@@ -1,9 +1,9 @@
 import {auth} from '../firebase.js';
 
-export function login(username, password) {
+export function login(values) {
   return function(dispatch) {
     auth
-      .signInWithEmailAndPassword(username, password)
+      .signInWithEmailAndPassword("nazariy.oprysk@gmail.com", "Nazar_1985")
       .then(result => dispatch(loginSuccess(result.user)))
       .catch(function(error) {
         return {

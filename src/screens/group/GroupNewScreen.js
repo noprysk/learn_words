@@ -4,31 +4,36 @@ import {
   Button,
   Container,
   Content,
+  Form,
   Header,
+  Input,
+  Item,
   Text,
   Title,
 } from 'native-base';
-import {login} from '../actions/index.js';
+import {login} from '../../actions/index.js';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import LoginFormComponent from '../components/LoginFormComponent';
 
-function LoginScreen({login, navigation}) {
+function GroupNewScreen({login, navigation}) {
   return (
     <Container>
       <Header>
         <Body>
-          <Title>Sign In</Title>
+          <Title>Create Group</Title>
         </Body>
       </Header>
       <Content padder>
-        <LoginFormComponent login={login} />
+        <Form>
+          <Item>
+            <Input placeholder="Group name" />
+          </Item>
+        </Form>
         <Button
-          transparent
           block
           iconLeft
-          onPress={() => navigation.navigate('SignUp')}>
-          <Text>New User Sign Up?</Text>
+          onPress={() => navigation.navigate('Groups')}>
+          <Text>Create</Text>
         </Button>
       </Content>
     </Container>
@@ -42,4 +47,4 @@ function matchDispatchToProps(dispatch) {
 export default connect(
   null,
   matchDispatchToProps,
-)(LoginScreen);
+)(GroupNewScreen);

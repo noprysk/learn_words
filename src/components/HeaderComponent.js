@@ -19,9 +19,7 @@ function HeaderComponent({
             <Icon name="arrow-back" />
           </Button>
         ) : (
-          <Button transparent>
-            <Icon name="menu" />
-          </Button>
+          <></>
         )}
       </Left>
       <Body>

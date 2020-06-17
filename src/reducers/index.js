@@ -3,7 +3,7 @@ import authReducer from './authReducer.js';
 import {reducer as formReducer} from 'redux-form';
 
 const allReducers = combineReducers({
-  form: formReducer,
   auth: authReducer,
+  form: formReducer,
 });
 export default allReducers;
